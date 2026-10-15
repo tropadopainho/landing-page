@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Brasil à Beira do Golpe | Dossiê Eleições 2026</title>
+  
+  <!-- Favicon / Meta -->
+  <meta name="description" content="O dossiê comparativo dos planos de governo e o guia prático para virar votos de amigos e parentes indecisos.">
+  <meta property="og:title" content="O Brasil à Beira do Golpe • Dossiê Eleitoral">
+  <meta property="og:description" content="Como o Congresso e o STF podem cair nas mãos do extremismo e o que você perde no dia seguinte.">
+  <meta property="og:image" content="anuncios/anuncio_01_boravirar.png">
+
+  <!-- Google Fonts: Bebas Neue, Oswald, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       RESET & SISTEMA DE DESIGN CONSTRUTIVISTA
+    ========================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-cream: #f3ede2;
+      --red-main: #ab1b24;
+      --red-dark: #8c131a;
+      --black: #141414;
+      --black-card: #1c1c1e;
+      --white: #ffffff;
+      --yellow: #fde047;
+      --orange: #e65127;
+      --gray-light: #e4dfd5;
+      --gray-text: #52525b;
+      --font-display: 'Bebas Neue', Impact, sans-serif;
+      --font-headline: 'Oswald', sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--black);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(var(--black) 0.5px, transparent 0.5px),
+        radial-gradient(var(--red-main) 0.5px, var(--bg-cream) 0.5px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Utilitários de Grid e Container */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================================
+       BARRA DE URGÊNCIA (TICKER)
+    ========================================================== */
+    .urgent-ticker {
+      background-color: var(--black);
+      color: var(--yellow);
+      font-family: var(--font-headline);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 8px 0;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--red-main);
+    }
+    .ticker-content {
+      display: inline-block;
+      animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* ==========================================================
+       NAVBAR MINIMALISTA
+    ========================================================== */
+    .navbar {
+      padding: 16px 0;
+      border-bottom: 2px solid var(--black);
+      background-color: var(--bg-cream);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--font-body);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand span {
+      color: var(--red-main);
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .nav-badge {
+      background-color: var(--red-main);
+      color: var(--white);
+      font-family: var(--font-headline);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid var(--black);
+    }
+
+    /* ==========================================================
+       HERO SECTION (DOBRA 1)
+    ========================================================== */
+    .hero {
+      padding: 40px 0 60px 0;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--red-main);
+      color: var(--white);
+      font-family: var(--font-headline);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 72px;
+      line-height: 0.9;
+      color: var(--black);
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+    }
+    .hero-title .red-text {
+      color: var(--red-main);
+    }
+
+    .hero-lead {
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--black);
+      border-left: 5px solid var(--red-main);
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: #3f3f46;
+      margin-bottom: 30px;
+      line-height: 1.55;
+    }
+
+    /* Bloco de Preço e CTA */
+    .cta-box {
+      background-color: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 8px 8px 0px var(--black);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .price-label {
+      font-family: var(--font-headline);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-text);
+      text-transform: uppercase;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 0.85;
+      color: var(--red-main);
+    }
+    .price-amount span {
+      font-size: 26px;
+      vertical-align: super;
+      font-family: var(--font-headline);
+    }
+
+    .btn-main {
+      display: block;
+      width: 100%;
+      background-color: var(--red-main);
+      color: var(--white);
+      font-family: var(--font-headline);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 18px 24px;
+      border: 3px solid var(--black);
+      box-shadow: 5px 5px 0px var(--black);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-main:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px var(--black);
+      background-color: var(--red-dark);
+    }
+    .btn-main:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--black);
+    }
+
+    .cta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-text);
+    }
+    .cta-badges span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* MOCKUP VISUAL HERO */
+    .mockup-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .fan-mockup-wrap {
+      position: relative;
+      width: 420px;
+      height: 580px;
+    }
+    .fan-card {
+      position: absolute;
+      width: 260px;
+      height: 462px;
+      border: 3px solid var(--black);
+      box-shadow: -8px 15px 35px rgba(0,0,0,0.35);
+      background-color: var(--bg-cream);
+      overflow: hidden;
+      bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    .fan-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-pos-1 { left: 0px; transform: rotate(-16deg); z-index: 10; }
+    .card-pos-2 { left: 60px; transform: rotate(-6deg); z-index: 20; }
+    .card-pos-3 { left: 120px; transform: rotate(5deg); z-index: 30; }
+    .card-pos-4 { left: 170px; transform: rotate(16deg); z-index: 40; }
+
+    .sticker-badge {
+      position: absolute;
+      top: 20px;
+      right: -10px;
+      background-color: var(--yellow);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0px var(--black);
+      padding: 10px 16px;
+      transform: rotate(8deg);
+      z-index: 50;
+      text-align: center;
+    }
+    .sticker-val {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 0.9;
+      color: var(--red-main);
+    }
+    .sticker-lbl {
+      font-family: var(--font-headline);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--black);
+      text-transform: uppercase;
+      display: block;
+    }
+
+    /* ==========================================================
+       SEÇÃO: OS 5 ATOS DE CHOQUE (CONTEÚDO DO E-BOOK)
+    ========================================================== */
+    .section-acts {
+      padding: 60px 0;
+      background-color: var(--black);
+      color: var(--white);
+      border-top: 4px solid var(--red-main);
+      border-bottom: 4px solid var(--red-main);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 40px auto;
+    }
+    .section-kicker {
+      font-family: var(--font-headline);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 54px;
+      line-height: 0.95;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .section-lead {
+      font-size: 17px;
+      color: #a1a1aa;
+      margin-top: 12px;
+    }
+
+    .acts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .act-card {
+      background-color: var(--black-card);
+      border: 2px solid #27272a;
+      border-left: 6px solid var(--red-main);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .act-card-num {
+      font-family: var(--font-headline);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .act-card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .act-card-desc {
+      font-size: 14px;
+      color: #d4d4d8;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================
+       SEÇÃO: POR QUE ESTE GUIA VIRA VOTOS
+    ========================================================== */
+    .section-why {
+      padding: 60px 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .dialogue-box {
+      background-color: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 8px 8px 0px var(--black);
+      padding: 24px;
+    }
+    .dialogue-title {
+      font-family: var(--font-headline);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--red-main);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 8px;
+    }
+    .msg-preview {
+      background-color: #f4f4f5;
+      border-left: 4px solid var(--black);
+      padding: 12px 16px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    /* ==========================================================
+       SEÇÃO: OFERTA FINAL & CHECKOUT
+    ========================================================== */
+    .section-offer {
+      padding: 70px 0;
+      background-color: var(--bg-cream);
+    }
+    .offer-card {
+      background-color: var(--white);
+      border: 4px solid var(--black);
+      box-shadow: 12px 12px 0px var(--black);
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .offer-tag {
+      display: inline-block;
+      background-color: var(--black);
+      color: var(--yellow);
+      font-family: var(--font-headline);
+      font-size: 16px;
+      font-weight: 800;
+      padding: 6px 16px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .offer-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 0.95;
+      color: var(--black);
+      margin-bottom: 15px;
+    }
+    .offer-subtitle {
+      font-size: 18px;
+      color: #3f3f46;
+      max-width: 620px;
+      margin: 0 auto 30px auto;
+    }
+
+    .deliverables-list {
+      text-align: left;
+      max-width: 540px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .deliverable-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .deliverable-item .icon {
+      background-color: var(--red-main);
+      color: var(--white);
+      padding: 2px 8px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .big-price {
+      font-family: var(--font-display);
+      font-size: 80px;
+      color: var(--red-main);
+      line-height: 0.85;
+      margin-bottom: 10px;
+    }
+    .big-price span {
+      font-size: 34px;
+      font-family: var(--font-headline);
+      vertical-align: super;
+    }
+
+    /* ==========================================================
+       RODAPÉ E AVISO JURÍDICO
+    ========================================================== */
+    .footer {
+      background-color: var(--black);
+      color: #a1a1aa;
+      padding: 40px 0;
+      font-size: 13px;
+      line-height: 1.6;
+      border-top: 4px solid var(--red-main);
+    }
+    .legal-notice {
+      background-color: #1f1f23;
+      border: 1px solid #3f3f46;
+      padding: 16px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #d4d4d8;
+    }
+
+    /* ==========================================================
+       RESPONSIVIDADE (MOBILE-FIRST)
+    ========================================================== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      .nav-brand {
+        font-size: 24px;
+      }
+      .hero {
+        padding: 25px 0 40px 0;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .hero-title {
+        font-size: 44px;
+        line-height: 0.95;
+      }
+      .mockup-visual {
+        order: -1;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 10px auto;
+        overflow: visible;
+      }
+      .fan-mockup-wrap {
+        width: 290px;
+        height: 380px;
+      }
+      .fan-card {
+        width: 165px;
+        height: 293px;
+        bottom: 15px;
+        box-shadow: -5px 10px 25px rgba(0,0,0,0.3);
+      }
+      .card-pos-1 { left: 0px; transform: rotate(-14deg); }
+      .card-pos-2 { left: 35px; transform: rotate(-5deg); }
+      .card-pos-3 { left: 75px; transform: rotate(5deg); }
+      .card-pos-4 { left: 115px; transform: rotate(14deg); }
+
+      .sticker-badge {
+        top: 0px;
+        right: 0px;
+        padding: 6px 12px;
+      }
+      .sticker-val {
+        font-size: 28px;
+      }
+      .sticker-lbl {
+        font-size: 9px;
+      }
+
+      .price-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .price-amount {
+        font-size: 46px;
+      }
+      .btn-main {
+        font-size: 20px;
+        padding: 15px 18px;
+      }
+
+      .section-acts {
+        padding: 45px 0;
+      }
+      .section-title {
+        font-size: 38px;
+      }
+      .section-why {
+        padding: 45px 0;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .offer-card {
+        padding: 25px 16px;
+      }
+      .offer-title {
+        font-size: 38px;
+      }
+      .big-price {
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE URGÊNCIA -->
+  <div class="urgent-ticker">
+    <div class="ticker-content">
+      ★ ELEIÇÕES 2026: CADA VOTO CONTA ★ DOSSIÊ DE URGÊNCIA ELEITORAL ★ LEIA, GUARDE E DISTRIBUA ★ COMPARAÇÃO DOS PLANOS DE GOVERNO ★ PROTEJA SEUS DIREITOS ★ #BORAVIRAR ★ ELEIÇÕES 2026: CADA VOTO CONTA ★ DOSSIÊ DE URGÊNCIA ELEITORAL ★
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        #boravirar <span>Bora Lula</span>
+      </div>
+      <div class="nav-badge">
+        EDIÇÃO DIGITAL
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (DOBRA 1) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      
+      <!-- Lado Esquerdo: Textos & CTA -->
+      <div>
+        <div class="hero-tag">DOSSIÊ ELEITORAL • 26 PÁGINAS EM PDF</div>
+        <h1 class="hero-title">
+          O BRASIL À BEIRA DO GOLPE:<br>
+          <span class="red-text">O QUE VOCÊ PERDE</span> SE ELES VENCEREM.
+        </h1>
+        <p class="hero-lead">
+          Como o Congresso e o STF podem cair nas mãos do extremismo e o que acontece no dia seguinte com o seu salário, seus direitos e a democracia.
+        </p>
+        <p class="hero-desc">
+          Um raio-X comparativo, direto e sem rodeios entre as propostas de Lula e Flávio Bolsonaro, fundamentado nos planos de governo oficiais protocolados no TSE.
+        </p>
+
+        <!-- Caixa de Preço e Botão -->
+        <div class="cta-box">
+          <div class="price-row">
+            <div>
+              <div class="price-label">Apoio Simbólico</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--red-main);">Acesso imediato no seu e-mail</div>
+            </div>
+            <div class="price-amount">
+              <span>R$</span>13
+            </div>
+          </div>
+          
+          <!-- BOTÃO PRINCIPAL COM LINK CONFIGURÁVEL -->
+          <a href="#checkout" class="btn-main checkout-btn">
+            BAIXAR O GUIA AGORA ➔
+          </a>
+
+          <div class="cta-badges">
+            <span>⚡ Envio Imediato por PIX</span>
+            <span>🔒 Pagamento 100% Seguro</span>
+            <span>📱 Formato Mobile 9:16</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Mockup Visual em Leque -->
+      <div class="mockup-visual">
+        <div class="fan-mockup-wrap">
+          <div class="fan-card card-pos-1">
+            <img src="./mockups/mockup_page_01.png" alt="Capa do E-book">
+          </div>
+          <div class="fan-card card-pos-2">
+            <img src="./mockups/mockup_page_07.png" alt="Comparativo de Planos">
+          </div>
+          <div class="fan-card card-pos-3">
+            <img src="./mockups/mockup_page_02.png" alt="Alerta Vermelho">
+          </div>
+          <div class="fan-card card-pos-4">
+            <img src="./mockups/mockup_page_26.png" alt="Contracapa Eleições 2026">
+          </div>
+        </div>
+        
+        <!-- Adesivo Construtivista de Preço -->
+        <div class="sticker-badge">
+          <div class="sticker-val">R$ 13</div>
+          <span class="sticker-lbl">APOIO SIMBÓLICO</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO: OS 5 ATOS DE CHOQUE -->
+  <section class="section-acts">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">CONTEÚDO COMPLETO</div>
+        <h2 class="section-title">O QUE VOCÊ VAI DESCOBRIR NESTE DOSSIÊ</h2>
+        <p class="section-lead">
+          26 páginas dinâmicas, altamente visuais e divididas em 5 blocos temáticos com dados, comparações ponto a ponto e argumentos prontos para o debate.
+        </p>
+      </div>
+
+      <div class="acts-grid">
+        <!-- Ato 1 -->
+        <div class="act-card">
+          <div>
+            <div class="act-card-num">ATO 1 • O RISCO INSTITUCIONAL</div>
+            <h3 class="act-card-title">A Equação do Golpe</h3>
+            <p class="act-card-desc">
+              Presidência + Maioria no Congresso + Novas cadeiras no STF. Como funciona o plano para mudar a Constituição, amordaçar a Justiça e perdoar golpistas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ato 2 -->
+        <div class="act-card">
+          <div>
+            <div class="act-card-num">ATO 2 • TRABALHO E RENDA</div>
+            <h3 class="act-card-title">O Ataque ao Seu Bolso</h3>
+            <p class="act-card-desc">
+              O perigo da "redução do custo do trabalho" e o fim da valorização do salário mínimo vs. a isenção de Imposto de Renda até R$ 5.000 garantida por Lula.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ato 3 -->
+        <div class="act-card">
+          <div>
+            <div class="act-card-num">ATO 3 • SAÚDE E BENEFÍCIOS</div>
+            <h3 class="act-card-title">Desmonte da Sobrevivência</h3>
+            <p class="act-card-desc">
+              Ameaça de privatização de postos de saúde, cortes burocráticos no Bolsa Família e extinção da Faixa 1 do Minha Casa Minha Vida.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ato 4 -->
+        <div class="act-card">
+          <div>
+            <div class="act-card-num">ATO 4 • SOBERANIA NACIONAL</div>
+            <h3 class="act-card-title">Terras Raras e Futuro</h3>
+            <p class="act-card-desc">
+              A disputa pelo petróleo, lítio e minerais críticos: entrega a preço de banana para multinacionais ou reindustrialização nacional e Pé-de-Meia para os jovens.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ato 5 -->
+        <div class="act-card" style="border-left-color: var(--yellow);">
+          <div>
+            <div class="act-card-num" style="color: var(--yellow);">ATO 5 • GUIA DE AÇÃO</div>
+            <h3 class="act-card-title">O Manual da Virada</h3>
+            <p class="act-card-desc">
+              O desafio "Vire 3 Votos": passo a passo para conversar com amigos e parentes indecisos sem briga, além de mensagens prontas de WhatsApp para copiar e colar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO: POR QUE ESTE GUIA FUNCIONA -->
+  <section class="section-why">
+    <div class="container why-grid">
+      <div>
+        <div class="hero-tag" style="background-color: var(--black);">MÉTODO COMPROVADO</div>
+        <h2 style="font-family: var(--font-display); font-size: 52px; line-height: 0.95; margin-bottom: 20px;">
+          COMO VIRAR VOTOS SEM BRIGAR NA FAMÍLIA OU NO TRABALHO
+        </h2>
+        <p style="font-size: 16px; color: #3f3f46; margin-bottom: 16px; line-height: 1.6;">
+          Tentar convencer alguém usando termos técnicos ou discutindo ideologia quase sempre termina em atrito. Este guia foi construído sob uma premissa diferente: <strong>a dor material e a sobrevivência concreta</strong>.
+        </p>
+        <p style="font-size: 16px; color: #3f3f46; line-height: 1.6;">
+          Você aprenderá a conduzir a conversa pelo preço da comida, pelo botijão de gás, pelo aumento real do salário e pelo risco de não ter remédio no posto. Quem trabalha de verdade não vota contra a própria família.
+        </p>
+      </div>
+
+      <div class="dialogue-box">
+        <div class="dialogue-title">📲 Exemplo do Kit de WhatsApp</div>
+        <p style="font-size: 13px; font-weight: 700; color: var(--gray-text); margin-bottom: 8px;">
+          MENSAGEM PRONTA PARA O PARENTE QUE FALA DO BOLSO:
+        </p>
+        <div class="msg-preview">
+          "Oi, tudo bem? Lembra da gasolina a R$ 8 e do botijão a R$ 130? Com Lula o salário voltou a subir acima da inflação e quem ganha até R$ 5 mil vai parar de pagar imposto de renda! No plano da oposição tá escrito 'redução do custo do trabalho' — ou seja, cortar direitos! Pense no seu bolso: vote 13!"
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--red-main);">
+          ★ O e-book inclui mensagens específicas para cada perfil de eleitor em dúvida!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO: OFERTA FINAL & CHECKOUT -->
+  <section class="section-offer" id="checkout">
+    <div class="container">
+      <div class="offer-card">
+        <div class="offer-tag">VALOR SIMBÓLICO DE MOBILIZAÇÃO</div>
+        <h2 class="offer-title">GARANTA SEU DOSSIÊ COMPLETO</h2>
+        <p class="offer-subtitle">
+          Um valor simbólico para cobrir os custos de infraestrutura e viabilizar a circulação da verdade para furar a bolha da desinformação.
+        </p>
+
+        <!-- O que você recebe -->
+        <div class="deliverables-list">
+          <div class="deliverable-item">
+            <span class="icon">✓</span>
+            <div><strong>E-book Completo (PDF):</strong> 26 páginas verticais otimizadas para leitura rápida no celular.</div>
+          </div>
+          <div class="deliverable-item">
+            <span class="icon">✓</span>
+            <div><strong>Cards Comparativos de Choque:</strong> Tabelas "❌ O Que Você Perde vs. ✅ O Que Você Garante".</div>
+          </div>
+          <div class="deliverable-item">
+            <span class="icon">✓</span>
+            <div><strong>Kit WhatsApp de Disparo:</strong> Textos prontos para enviar em grupos de família e amigos.</div>
+          </div>
+          <div class="deliverable-item">
+            <span class="icon">✓</span>
+            <div><strong>Roteiros de 30s:</strong> Scripts curtos para postar em Reels e Stories.</div>
+          </div>
+        </div>
+
+        <!-- Preço -->
+        <div class="big-price">
+          <span>R$</span>13,00
+        </div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--gray-text); margin-bottom: 25px;">
+          PAGAMENTO ÚNICO VIA PIX OU CARTÃO • ACESSO IMEDIATO
+        </div>
+
+        <!-- BOTÃO FINAL DE CHECKOUT -->
+        <a href="#checkout" class="btn-main checkout-btn" style="max-width: 500px; margin: 0 auto;">
+          QUERO MEU GUIA POR R$ 13 ➔
+        </a>
+
+        <div class="cta-badges" style="justify-content: center; margin-top: 20px;">
+          <span>🔒 Checkout Seguro</span>
+          <span>⚡ Liberação Automática</span>
+          <span>🛡️ Garantia Legal de 7 Dias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER & AVISO JURÍDICO -->
+  <footer class="footer">
+    <div class="container">
+      <div class="legal-notice">
+        <strong>AVISO LEGAL E DE TRANSPARÊNCIA:</strong> Esta obra digital ("O Brasil à Beira do Golpe") constitui um produto editorial independente de análise e opinião política, produzido e comercializado no estrito exercício da liberdade de expressão e de manifestação do pensamento assegurada pelos artigos 5º (incisos IV e IX) e 220 da Constituição Federal de 1988. O valor de R$ 13,00 corresponde unicamente ao preço de aquisição comercial do e-book digital, não se caracterizando como doação eleitoral, arrecadação partidária ou financiamento de campanha eleitoral de qualquer natureza.
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div style="font-family: var(--font-body); font-weight: 800; font-size: 16px; color: var(--white);">
+          #boravirar • Dossiê Eleições 2026
+        </div>
+        <div>
+          Todos os direitos reservados • Formato Digital PDF
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE CONFIGURAÇÃO FÁCIL DO LINK DE CHECKOUT -->
+  <script>
+    /* ================================================================
+       CONFIGURAÇÃO DO LINK DE CHECKOUT
+       Basta colar o link do seu produto na Kiwify, Hotmart, Eduzz ou Cakto
+       entre as aspas abaixo para que todos os botões da página funcionem!
+    ================================================================ */
+    const CHECKOUT_URL = "https://pay.kiwify.com.br/SEU_LINK_AQUI";
+
+    document.querySelectorAll(".checkout-btn").forEach(button => {
+      button.addEventListener("click", function(e) {
+        if (CHECKOUT_URL !== "https://pay.kiwify.com.br/SEU_LINK_AQUI") {
+          e.preventDefault();
+          window.location.href = CHECKOUT_URL;
+        } else {
+          // Se ainda não configurou o link, rola até o box de checkout
+          const target = document.getElementById("checkout");
+          if (target && this.getAttribute("href") === "#checkout") {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
