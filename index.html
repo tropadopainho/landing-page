@@ -898,11 +898,11 @@
        Basta colar o link do seu produto na Kiwify, Hotmart, Eduzz ou Cakto
        entre as aspas abaixo para que todos os botões da página funcionem!
     ================================================================ */
-    const CHECKOUT_URL = "https://pay.kiwify.com.br/SEU_LINK_AQUI";
+    const CHECKOUT_URL = "https://pay.kiwify.com.br/T2sbETu";
 
     document.querySelectorAll(".checkout-btn").forEach(button => {
       button.addEventListener("click", function(e) {
-        if (CHECKOUT_URL !== "https://pay.kiwify.com.br/SEU_LINK_AQUI") {
+        if (CHECKOUT_URL !== "https://pay.kiwify.com.br/T2sbETu") {
           e.preventDefault();
           window.location.href = CHECKOUT_URL;
         } else {
